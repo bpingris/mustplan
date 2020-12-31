@@ -10,7 +10,6 @@ const options = {
   ],
   debug: process.env.NODE_ENV === "development",
   secret: process.env.AUTH_SECRET,
-  //         mongodb+srv://dbUser:bPHD8IQ1Lkx0Z3ff@cluster0.goqdy.mongodb.net/mustplan?retryWrites=true&w=majority
   database: process.env.MONGO_URI,
   callbacks: {
     session: async (session, user) => {
