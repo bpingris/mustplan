@@ -30,7 +30,8 @@ function Project() {
               Mis a jour le {formatDate(project.updatedAt)}
             </span>
           </div>
-          <div className="flex flex-col mt-5 space-y-4">
+          {/* <div className="flex flex-col mt-5 space-y-4"> */}
+          <div className="flex flex-col mt-5 space-y-4 md:flex-row md:space-x-4 md:space-y-0">
             {project.lists.map((list) => (
               <List key={list._id} projectId={id} list={list} />
             ))}

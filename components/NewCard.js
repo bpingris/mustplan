@@ -20,7 +20,7 @@ export default function NewCard({ listId, done }) {
     done();
   };
   return (
-    <form onSubmit={onSubmit} className="p-4 bg-white">
+    <form onSubmit={onSubmit} className="p-4 bg-gray-50 rounded-b-md">
       <div className="flex flex-col space-y-2">
         <Input
           value={name}

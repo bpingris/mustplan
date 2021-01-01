@@ -2,9 +2,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const Layout = ({ children }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       <Navbar open={open} setOpen={setOpen} />
       <section className="flex-1 bg-gray-200">
         <div
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           </svg>
           <h1 className="text-2xl">MustPlan</h1>
         </div>
-        <div className="px-4 pt-3">{children}</div>
+        <div className="container px-4 pt-3 mx-auto">{children}</div>
       </section>
     </div>
   );
