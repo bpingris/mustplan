@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex min-h-screen">
       <Navbar open={open} setOpen={setOpen} />
-      <section className="w-full bg-gray-200 md:w-4/5">
+      <section className="flex flex-1 min-w-0 overflow-hidden bg-gray-200">
         <div
           className="relative z-0 flex items-center justify-center px-3 py-2 bg-white md:hidden"
           onClick={() => setOpen(true)}
