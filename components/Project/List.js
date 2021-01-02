@@ -12,7 +12,7 @@ export default function List({ list }) {
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}
-          className="rounded-md shadow-md "
+          className="rounded-md shadow-md md:w-80"
         >
           <h3 className="p-3 text-lg text-white bg-blue-400 rounded-t-md">
             {list.name} <span className="text-sm">({list.cards.length})</span>

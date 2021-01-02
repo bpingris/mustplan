@@ -2,7 +2,7 @@ import { signOut, useSession } from "next-auth/client";
 import ActiveLink from "./ActiveLink";
 
 export default function Navbar({ open, setOpen }) {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   const links = [
     {
       name: "Tous les projets",
@@ -30,7 +30,7 @@ export default function Navbar({ open, setOpen }) {
       <div
         className={`${
           open ? "translate-x-0" : "-translate-x-full"
-        } transform z-10 fixed w-64 md:relative md:translate-x-0 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 border-r-2 border-gray-300 ease-in-out duration-300`}
+        } sm:w-1/3 transform z-10 min-h-screen fixed w-64 md:relative md:translate-x-0 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 border-r-2 border-gray-300 ease-in-out duration-300`}
       >
         <h1 className="text-2xl font-light text-center">MustPlan</h1>
         <svg
@@ -50,7 +50,7 @@ export default function Navbar({ open, setOpen }) {
         </svg>
         <ul className="flex flex-col mt-10 space-y-2">
           {links.map((link) => (
-            <li onClick={(e) => setOpen(false)} key={link.href}>
+            <li onClick={() => setOpen(false)} key={link.href}>
               <ActiveLink
                 className="flex px-2 py-1 space-x-2 text-gray-600 rounded focus:bg-blue-100 hover:bg-blue-100 bg-blue-50"
                 href={link.href}

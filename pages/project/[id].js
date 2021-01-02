@@ -48,7 +48,7 @@ function Project() {
             <div className="flex flex-col ">
               <h1 className="text-2xl">{project.name}</h1>
               <span className="text-sm text-gray-700">
-                Créé le{formatDate(project.createdAt)}
+                Créé le {formatDate(project.createdAt)}
               </span>
             </div>
             <span className="text-sm text-gray-700">
@@ -59,11 +59,7 @@ function Project() {
           <DragDropContext onDragEnd={onDragEnd}>
             <ul className="flex flex-col pb-4 mt-5 space-y-4 overflow-x-auto md:flex-row md:space-x-4 md:space-y-0">
               {project.lists.map((list) => (
-                <li
-                  key={list._id}
-                  className="h-full md:w-80"
-                  style={{ width: "150px", minWidth: "150px" }}
-                >
+                <li key={list._id} className="h-full md:w-80">
                   <List projectId={id} list={list} />
                 </li>
               ))}
