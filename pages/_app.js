@@ -7,7 +7,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
       <Layout>
-        <div id="test" />
         <Component {...pageProps} />
       </Layout>
     </Provider>

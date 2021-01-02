@@ -26,14 +26,7 @@ export default async (req, res) => {
       }
       break;
     case "PUT":
-      if (body.name.trim() === "") {
-        res.status(422);
-        return res.end();
-      }
-      await Card.findOneAndUpdate(
-        { _id: cardId },
-        { name: body.name, description: body.description }
-      );
+      await Card.findOneAndUpdate({ _id: cardId }, body);
       res.status(200);
       return res.end();
     default:

@@ -6,13 +6,13 @@ const Layout = ({ children }) => {
   return (
     <div className="flex min-h-screen">
       <Navbar open={open} setOpen={setOpen} />
-      <section className="flex-1 bg-gray-200">
+      <section className="w-full bg-gray-200">
         <div
-          className="relative z-0 flex items-center justify-center px-3 py-2 bg-white"
+          className="relative z-0 flex items-center justify-center px-3 py-2 bg-white md:hidden"
           onClick={() => setOpen(true)}
         >
           <svg
-            className="absolute left-0 w-6 h-6 ml-3"
+            className="absolute left-0 w-6 h-6 ml-3 cursor-pointer"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

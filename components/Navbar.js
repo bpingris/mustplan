@@ -30,12 +30,12 @@ export default function Navbar({ open, setOpen }) {
       <div
         className={`${
           open ? "translate-x-0" : "-translate-x-full"
-        } transform z-10 fixed w-64 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 border-r-2 border-gray-300 ease-in-out duration-300`}
+        } transform z-10 fixed w-64 md:relative md:translate-x-0 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 border-r-2 border-gray-300 ease-in-out duration-300`}
       >
         <h1 className="text-2xl font-light text-center">MustPlan</h1>
         <svg
           onClick={() => setOpen(false)}
-          className="absolute top-0 right-0 w-6 h-6 mt-4 mr-3"
+          className="absolute top-0 right-0 w-6 h-6 mt-4 mr-3 cursor-pointer md:hidden"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

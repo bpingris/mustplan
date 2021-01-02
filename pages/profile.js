@@ -2,11 +2,15 @@ import { signOut, useSession } from "next-auth/client";
 import Projects from "../components/Profile/Projects";
 import Button from "../components/UI/Button";
 import { withDefautLayout } from "../layouts/Default";
+import Head from "next/head";
 
 export default withDefautLayout(() => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   return (
     <>
+      <Head>
+        <title>Mustplan - Profil</title>
+      </Head>
       {session && (
         <div className="p-5 mx-auto bg-white rounded shadow sm:w-2/3 md:w-1/2 lg:w-1/3">
           <h1 className="text-2xl ">Profile</h1>
