@@ -6,13 +6,13 @@ const Layout = ({ children }) => {
   return (
     <div className="flex min-h-screen">
       <Navbar open={open} setOpen={setOpen} />
-      <section className="flex flex-1 min-w-0 overflow-hidden bg-gray-200">
+      <section className="flex flex-col flex-1 min-w-0 overflow-hidden bg-gray-200">
         <div
-          className="relative z-0 flex items-center justify-center px-3 py-2 bg-white md:hidden"
+          className="relative z-0 flex items-center justify-center px-3 py-2 bg-white "
           onClick={() => setOpen(true)}
         >
           <svg
-            className="absolute left-0 w-6 h-6 ml-3 cursor-pointer"
+            className="absolute left-0 w-6 h-6 ml-3 cursor-pointer md:hidden"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           </svg>
           <h1 className="text-2xl">MustPlan</h1>
         </div>
-        <div className="container px-4 pt-3 mx-auto">{children}</div>
+        <div className="container px-4 pt-3 mx-auto mt-5">{children}</div>
       </section>
     </div>
   );

@@ -13,12 +13,21 @@ export default async (req, res) => {
   }
 
   await dbConnect();
+  const {
+    query: { projectId },
+  } = req;
 
   switch (req.method) {
+    case "DELETE":
+      try {
+        await Project.findByIdAndDelete(projectId);
+        res.status(200);
+        return res.end();
+      } catch (e) {
+        return res.status(500).json(e);
+      }
+      break;
     case "GET":
-      const {
-        query: { projectId },
-      } = req;
       try {
         const project = await Project.aggregate([
           {

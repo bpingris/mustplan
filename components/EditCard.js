@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useProject } from "../lib/store/project";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
@@ -23,7 +23,7 @@ export default function EditCard({ card, done }) {
     done();
   };
   return (
-    <form onSubmit={onSubmit} className="p-4 bg-gray-50 rounded-b-md">
+    <form onSubmit={onSubmit} >
       <div className="flex flex-col space-y-2">
         <Input
           value={name}

@@ -115,9 +115,11 @@ function NewProject() {
                 </div>
               </div>
             </label>
-            <Button loading={loading} type="submit">
-              Creer mon projet
-            </Button>
+            <div className="mx-auto sm:w-2/3 md:w-48">
+              <Button loading={loading} type="submit">
+                Creer mon projet
+              </Button>
+            </div>
           </div>
         </form>
       </div>

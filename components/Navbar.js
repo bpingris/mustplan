@@ -1,4 +1,5 @@
 import { signOut, useSession } from "next-auth/client";
+import Link from "next/link";
 import ActiveLink from "./ActiveLink";
 
 export default function Navbar({ open, setOpen }) {
@@ -30,9 +31,9 @@ export default function Navbar({ open, setOpen }) {
       <div
         className={`${
           open ? "translate-x-0" : "-translate-x-full"
-        } transform z-10 min-h-screen static w-64 md:relative md:translate-x-0 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 border-r-2 border-gray-300 ease-in-out duration-300`}
+        } shadow transform z-10 min-h-screen md:static w-64 fixed md:translate-x-0 inset-y-0 left-0 h-full bg-white transition-all px-8 py-3 ease-in-out duration-300`}
       >
-        <h1 className="text-2xl font-light text-center">MustPlan</h1>
+        <h1 className="text-3xl font-light text-center">MustPlan</h1>
         <svg
           onClick={() => setOpen(false)}
           className="absolute top-0 right-0 w-6 h-6 mt-4 mr-3 cursor-pointer md:hidden"
@@ -76,10 +77,10 @@ export default function Navbar({ open, setOpen }) {
               </ActiveLink>
             </li>
           ))}
-          {session && (
-            <li>
+          <li>
+            {session ? (
               <button
-                className="flex w-full px-2 py-1 mt-4 space-x-2 text-gray-600 bg-red-100 rounded focus:bg-red-100 hover:bg-red-100"
+                className="flex w-full px-2 py-1 mt-4 space-x-2 text-gray-600 bg-red-100 rounded focus:bg-red-200 hover:bg-red-200"
                 onClick={signOut}
               >
                 <svg
@@ -98,8 +99,28 @@ export default function Navbar({ open, setOpen }) {
                 </svg>
                 <span>Deconnexion</span>
               </button>
-            </li>
-          )}
+            ) : (
+              <Link href="/login">
+                <a className="flex w-full px-2 py-1 mt-4 space-x-2 text-gray-600 bg-green-100 rounded focus:bg-green-200 hover:bg-green-200">
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                    />
+                  </svg>
+                  <span>Connexion</span>
+                </a>
+              </Link>
+            )}
+          </li>
         </ul>
       </div>
     </>
