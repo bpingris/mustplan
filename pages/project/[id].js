@@ -23,11 +23,11 @@ function Project() {
             <div className="flex flex-col ">
               <h1 className="text-2xl">{project.name}</h1>
               <span className="text-sm text-gray-700">
-                Cree le {formatDate(project.createdAt)}
+                Créé le{formatDate(project.createdAt)}
               </span>
             </div>
             <span className="text-sm text-gray-700">
-              Mis a jour le {formatDate(project.updatedAt)}
+              Mis à jour le {formatDate(project.updatedAt)}
             </span>
           </div>
           {/* <div className="flex flex-col mt-5 space-y-4"> */}

@@ -8,6 +8,7 @@ import { requiresAuth } from "../lib/auth";
 function NewProject() {
   const [name, setName] = useState("");
   const [columns, setColumns] = useState(["To-do", "Doing", "Done"]);
+  const [loading, setLoading] = useState(false);
 
   const editColumn = (e, i) => {
     let newCols = [...columns];
@@ -34,8 +35,9 @@ function NewProject() {
         "Vous devez remplir le nom et avoir au moins 1 colonne !"
       );
     }
-    const res = await axios.post("/api/projects", { name, columns });
-    console.log(res);
+    setLoading(true);
+    await axios.post("/api/projects", { name, columns });
+    setLoading(false);
   };
 
   return (
@@ -104,7 +106,9 @@ function NewProject() {
               </div>
             </div>
           </label>
-          <Button type="submit">Creer mon projet</Button>
+          <Button loading={loading} type="submit">
+            Creer mon projet
+          </Button>
         </div>
       </form>
     </div>

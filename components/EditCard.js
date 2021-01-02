@@ -4,20 +4,20 @@ import { useProject } from "../lib/store/project";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
 
-export default function NewCard({ listId, done }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+export default function EditCard({ card, done }) {
+  const [name, setName] = useState(card.name);
+  const [description, setDescription] = useState(card.description);
   const [loading, setLoading] = useState(false);
   const { project, getProject } = useProject();
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await axios.post(`/api/project/${project._id}/card`, {
+    const r = await axios.put(`/api/project/${project._id}/card/${card._id}`, {
       name,
       description,
-      listId,
     });
+
     await getProject(project._id);
     setLoading(false);
     done();
@@ -49,7 +49,7 @@ export default function NewCard({ listId, done }) {
           Annuler
         </Button>
         <Button loading={loading} type="submit" size="small">
-          Creer
+          Mettre à jour
         </Button>
       </div>
     </form>

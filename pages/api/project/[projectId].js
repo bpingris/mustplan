@@ -17,13 +17,13 @@ export default async (req, res) => {
   switch (req.method) {
     case "GET":
       const {
-        query: { id },
+        query: { projectId },
       } = req;
       try {
         const project = await Project.aggregate([
           {
             $match: {
-              _id: Types.ObjectId(id),
+              _id: Types.ObjectId(projectId),
               member: session.id,
             },
           },

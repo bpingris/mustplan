@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Card } from "./Card";
 import NewCard from "./NewCard";
 
 export default function List({ list }) {
@@ -6,20 +7,14 @@ export default function List({ list }) {
 
   return (
     <>
-      <div className="h-full rounded-md shadow-md md:w-60">
+      <div className="h-full rounded-md shadow-md md:w-80">
         <h3 className="p-3 text-lg text-white bg-blue-400 rounded-t-md">
           {list.name} <span className="text-sm">({list.cards.length})</span>
         </h3>
-        <ul className="px-5 py-2 space-y-3 bg-gray-50 ">
+        <ul className="px-5 py-2 space-y-3 bg-gray-100 ">
           {list.cards.map((card, i) => (
-            <li
-              className="flex flex-col px-4 py-2 bg-white rounded-md shadow "
-              key={card._id}
-            >
-              <span className="text-sm font-bold">{card.name}</span>
-              {card.description && (
-                <span className="text-gray-700">{card.description}</span>
-              )}
+            <li key={card._id}>
+              <Card card={card} />
             </li>
           ))}
         </ul>
